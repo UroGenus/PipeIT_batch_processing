@@ -24,12 +24,12 @@ The output .vcf and .tsv files for each sample will be located in the folder `Pi
 After the processing has finished, you can collect all .tsv results in one file by running the following command
 ```
 python3 collect_PipeIT_results.py
-  -x X        Ion Xpress Barcodes xlsx file with columns 'Sample Name' and 'Normalize by'
+  -i I        Input folder with PipeIT results
   -o O        Output .tsv file
 ```
 For example
 ```
-python3 collect_PipeIT_results.py -x /storage/research/dbmr_urology/Prostate_PDO/20200716_prostate_panel_sequencing.xlsx -o PDO_mutation_results.tsv
+python3 collect_PipeIT_results.py -x PipeIT/results -o PDO_mutation_results.tsv
 ```
 
 ## Process one file
