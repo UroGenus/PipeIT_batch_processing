@@ -21,7 +21,7 @@ python3 PipeIT_batch_run_ubelix.py -i /home/ubelix/dbmr/ko20g613/PipeIT_1.2.13.i
 ```
 The output .vcf and .tsv files for each sample will be located in the folder `PipeIT/results/<sample name>`.
 
-To collect all .tsv results in one file, run the following command
+After the processing has finished, you can collect all .tsv results in one file by running the following command
 ```
 python3 collect_PipeIT_results.py
   -x X        Ion Xpress Barcodes xlsx file with columns 'Sample Name' and 'Normalize by'
