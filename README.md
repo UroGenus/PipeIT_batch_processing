@@ -2,6 +2,25 @@
 
 This repository contains scripts for batch processing of raw .bam files using [PipeIT](https://github.com/ckynlab/PipeIT) pipeline. [PipeIT](https://github.com/ckynlab/PipeIT) is a somatic variant calling pipeline specific for Ion Torrent sequencing data.
 
+## Batch processing on UBELIX
+
+Run the following command with the parameters:
+```
+python3 PipeIT_batch_run_ubelix.py
+  -b B        Folder with .bam data
+  -i I        PipeIT image file
+  -t T        Input bam folder
+  -e E        Target panel bed file
+  -x X        Ion Xpress Barcodes xlsx file with columns 'Sample Name' and 'Normalize by'
+  -m M        Email user when jobs done
+  -s S        snpEff jar file location
+```
+For example
+```
+python3 PipeIT_batch_run_ubelix.py -i /home/ubelix/dbmr/ko20g613/PipeIT_1.2.13.img -b /storage/research/dbmr_urology/Prostate_PDO /home/ubelix/dbmr/ko20g613/PipeIT_1.2.13.img -t /storage/research/dbmr_urology/Prostate_PDO/bam -e /storage/research/dbmr_urology/Prostate_PDO/WG_IAD127899.20170720.designed.bed -x /storage/research/dbmr_urology/Prostate_PDO/20200716_prostate_panel_sequencing.xlsx -s /home/ubelix/dbmr/ko20g613/snpEff/SnpSift.jar  -m e.ovchinnikova@gmail.com 
+```
+The output .vcf and .tsv files for each sample will be located in the folder `PipeIT/results/<sample name>'.
+
 ## Process one file
 
 To process one file, run the following command
