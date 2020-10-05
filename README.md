@@ -12,7 +12,7 @@ python3 PipeIT_batch_run_ubelix.py
   -t T        Input bam folder
   -e E        Target panel bed file
   -x X        Ion Xpress Barcodes xlsx file with columns 'Sample Name', 'Normalize by', and 'Ion Xpress Barcode'
-  -m M        Email user when jobs done
+  -m M        Email to report when jobs are done (optional)
   -s S        snpEff jar file location
 ```
 For example
