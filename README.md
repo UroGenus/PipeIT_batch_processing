@@ -17,7 +17,7 @@ python3 PipeIT_batch_run_ubelix.py
 ```
 For example
 ```
-python3 PipeIT_batch_run_ubelix.py -i /home/ubelix/dbmr/ko20g613/PipeIT_1.2.13.img -b /storage/research/dbmr_urology/Prostate_PDO /home/ubelix/dbmr/ko20g613/PipeIT_1.2.13.img -t /storage/research/dbmr_urology/Prostate_PDO/bam -e /storage/research/dbmr_urology/Prostate_PDO/WG_IAD127899.20170720.designed.bed -x /storage/research/dbmr_urology/Prostate_PDO/20200716_prostate_panel_sequencing.xlsx -s /home/ubelix/dbmr/ko20g613/snpEff/SnpSift.jar  -m e.ovchinnikova@gmail.com 
+python3 PipeIT_batch_run_ubelix.py -i /home/ubelix/dbmr/ko20g613/PipeIT_1.2.13.img -b /storage/research/dbmr_urology/Prostate_PDO /home/ubelix/dbmr/ko20g613/PipeIT_1.2.13.img -t /storage/research/dbmr_urology/Prostate_PDO/bam -e /storage/research/dbmr_urology/Prostate_PDO/WG_IAD127899.20170720.designed.bed -x /storage/research/dbmr_urology/Prostate_PDO/20200716_prostate_panel_sequencing.xlsx -s /home/ubelix/dbmr/ko20g613/snpEff/SnpSift.jar 
 ```
 This script will generate the `jobs.sh` file in the same directory, that should be run as follows
 ```
