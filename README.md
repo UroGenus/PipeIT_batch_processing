@@ -25,7 +25,7 @@ After the processing has finished, you can collect all .tsv results in one file 
 ```
 python3 collect_PipeIT_results.py
   -i I        Input folder with PipeIT results
-  -x X        Ion Xpress Barcodes xlsx file with columns columns 'Sample Name', 'Normalize by', and 'Ion Xpress Barcode'
+  -x X        Ion Xpress Barcodes xlsx file with columns 'Sample Name', 'Normalize by', and 'Ion Xpress Barcode'
   -o O        Output .tsv file, default stdout
 
 ```
