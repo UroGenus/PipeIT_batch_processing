@@ -25,11 +25,13 @@ After the processing has finished, you can collect all .tsv results in one file 
 ```
 python3 collect_PipeIT_results.py
   -i I        Input folder with PipeIT results
-  -o O        Output .tsv file
+  -x X        Ion Xpress Barcodes xlsx file with columns columns 'Sample Name', 'Normalize by', and 'Ion Xpress Barcode'
+  -o O        Output .tsv file, default stdout
+
 ```
 For example
 ```
-python3 collect_PipeIT_results.py -x PipeIT/results -o PDO_mutation_results.tsv
+python3 collect_PipeIT_results.py -i PipeIT/results -x /storage/research/dbmr_urology/Prostate_PDO/20200716_prostate_panel_sequencing.xlsx -o PDO_mutation_results.tsv
 ```
 
 ## Process one file
