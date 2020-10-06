@@ -11,17 +11,23 @@ python3 PipeIT_batch_run_ubelix.py
   -i I        PipeIT image file
   -t T        Input bam folder
   -e E        Target panel bed file
-  -x X        Ion Xpress Barcodes xlsx file with columns 'Sample Name', 'Normalize by', and 'Ion Xpress Barcode'
-  -m M        Email to report when jobs are done (optional)
+  -x X        Ion Xpress Barcodes xlsx file with columns columns 'Sample Name', 'Normalize by', and 'Ion Xpress Barcode'
+  -m M        Email to report when jobs are done
   -s S        snpEff jar file location
 ```
 For example
 ```
 python3 PipeIT_batch_run_ubelix.py -i /home/ubelix/dbmr/ko20g613/PipeIT_1.2.13.img -b /storage/research/dbmr_urology/Prostate_PDO /home/ubelix/dbmr/ko20g613/PipeIT_1.2.13.img -t /storage/research/dbmr_urology/Prostate_PDO/bam -e /storage/research/dbmr_urology/Prostate_PDO/WG_IAD127899.20170720.designed.bed -x /storage/research/dbmr_urology/Prostate_PDO/20200716_prostate_panel_sequencing.xlsx -s /home/ubelix/dbmr/ko20g613/snpEff/SnpSift.jar  -m e.ovchinnikova@gmail.com 
 ```
-The output .vcf and .tsv files for each sample will be located in the folder `PipeIT/results/<sample name>`.
+This script will generate the `jobs.sh` file in the same directory, that should be run as follows
+```
+sbatch jobs.sh
+```
 
-After the processing has finished, you can collect all .tsv results in one file by running the following command
+Processing can be monitored by the command `squeue --user <user name>` as described [here](https://hpc-unibe-ch.github.io/user-guide/job-management/monitoring-jobs.html). Logs can be found in the files `log.txt` and `err.txt` in the same directory.
+
+After the processing has finished, the output .vcf and .tsv files for each sample will be located in the folder `PipeIT/results/<sample name>`.
+You can then collect all .tsv results in one file by running the following command
 ```
 python3 collect_PipeIT_results.py
   -i I        Input folder with PipeIT results
