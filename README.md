@@ -28,7 +28,7 @@ sbatch jobs_norm.sh
 sbatch jobs_nonorm.sh
 ```
 
-Processing can be monitored by the command `squeue --user <user name>` as described [here](https://hpc-unibe-ch.github.io/user-guide/job-management/monitoring-jobs.html). Logs can be found in the files `log.txt` and `err.txt` in the same directory.
+Processing can be monitored by the command `squeue --user <user name>` as described [here](https://hpc-unibe-ch.github.io/user-guide/job-management/monitoring-jobs.html). Logs can be found in the files `log_(no)norm.txt` and `err_(no)norm.txt` in the same directory.
 
 After the processing has finished, the output .vcf and .tsv files for each sample will be located in the folder `PipeIT/results/<sample name>`.
 You can then collect all .tsv results in one file by running the following command
@@ -51,7 +51,7 @@ To process one file with blood sample for normalization, run the following comma
 ```
 singularity run -B <path/to/folders/that/need/to/be/mounted> <path/to/PipeIT_<version>.img> -t path/to/tumor.bam -n path/to/normal.bam -e path/to/region.bed  -o <output_directory>
 ```
-For example, for prostate PDO raw data run on UBELIX cluster:
+For example, for prostate PDO raw data run on UBELIX cluster
 ```
 singularity run -B /storage/research/dbmr_urology/Prostate_PDO PipeIT_1.2.13.img -t /storage/research/dbmr_urology/Prostate_PDO/bam/IonXpress_003.bam -n /storage/research/dbmr_urology/Prostate_PDO/bam/IonXpress_001.bam -e /storage/research/dbmr_urology/Prostate_PDO/WG_IAD127899.20170720.designed.bed -o test_3
 ```
@@ -68,7 +68,7 @@ To process one file with normal sample pool for normalization, run the following
 ```
 singularity run -B <path/to/folders/that/need/to/be/mounted> <path/to/PipeIT_<version>.img> -t path/to/tumor.bam -e path/to/region.bed -c path/to/annovar/folder -d /path/to/mutations.vcf -o <output_directory>
 ```
-For example
+For example, for prostate PDO raw data run on UBELIX cluster
 ```
 singularity run -B /storage/research/dbmr_urology/Prostate_PDO /home/ubelix/dbmr/ko20g613/PipeIT_1.2.13.img -t /storage/research/dbmr_urology/Prostate_PDO/bam/IonXpress_024.bam  -e /storage/research/dbmr_urology/Prostate_PDO/WG_IAD127899.20170720.designed.bed -c /home/ubelix/dbmr/ko20g613/scripts/PipeIT_batch_processing/humandb -d /storage/research/dbmr_urology/Prostate_PDO/pon.tvc.vcf  -r 4  -o P133-CA-N-TS
 ```
@@ -77,6 +77,8 @@ where
 - `/storage/research/dbmr_urology/Prostate_PDO/pon.tvc.vcf` is the path to the file with the mutations found in a pool of normal samples (can be generated with [this pipeline](https://github.com/charlottekyng/usb-modules-v2))
 
 For more details and options, see [the PipeIT repository docu](https://github.com/ckynlab/PipeIT).
+
+### Generate final output as .tsv
 
 PipeIT generates several output files in the folder `PipeIT/results/<output_directory>`. The .vcf can be found under `PipeIT/results/<output_directory>/<output_directory>.PipeIT.vcf`. To extract mutation information from this file in .tsv format, install [SnpEff & SnpSift](https://pcingola.github.io/SnpEff/download/) and run the following commands
 ```
