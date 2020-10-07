@@ -19,12 +19,17 @@ def main():
 	results_df = pd.DataFrame()
 	for d in os.listdir(pa.i):
 		results_file = path.join(pa.i, '%s/%s.PipeIT.tsv') % (d, d)
+		if not path.isfile(results_file):
+			print('No file', results_file)
+			continue
 		r_df = pd.read_csv(results_file, delimiter = '\t')
 		if r_df.shape[0] == 0: continue
-		r_df['Sample Name'] = [d] * r_df.shape[0]
 		norm_name = barcodes_df[barcodes_df['Sample Name'] == d]['Normalize by'].values[0]
-		r_df['Normalized by'] = [norm_name] * r_df.shape[0]
+		r_df.insert(loc=0, column='Sample Name', value=[d] * r_df.shape[0])
+		r_df.insert(loc=1, column='Normalized by', value=[norm_name] * r_df.shape[0])
 		results_df = results_df.append(r_df)
+
+	results_df.sort_values(by = 'Sample Name', inplace = True)
 	results_df.to_csv(pa.o, sep = '\t', index = False)
 
 if __name__ == "__main__":
