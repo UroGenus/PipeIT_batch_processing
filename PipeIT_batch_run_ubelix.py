@@ -20,8 +20,8 @@ def main():
 	parser.add_argument( "-e", help="Target panel bed file", default = '/storage/research/dbmr_urology/Prostate_PDO/WG_IAD127899.20170720.designed.bed')
 	parser.add_argument( "-x", help="Ion Xpress Barcodes xlsx file with columns columns 'Sample Name', 'Normalize by', and 'Ion Xpress Barcode'", default = '/storage/research/dbmr_urology/Prostate_PDO/20200716_prostate_panel_sequencing.xlsx')
 	parser.add_argument( "-s", help="snpEff jar file location", default = '/home/ubelix/dbmr/ko20g613/snpEff/SnpSift.jar')
-	parser.add_argument( "-c", help="Annovar's database files folder", default = '/storage/research/dbmr_urology/humandb')
-	parser.add_argument( "-d", help="the VCF file with the mutations found in a pool of normal samples", default = '/storage/research/dbmr_urology/Prostate_PDO/pon.tvc.vcf')
+	parser.add_argument( "-c", help="Annovar's database files folder", default = '/storage/research/dbmr_urology/Prostate_PDO/humandb')
+	parser.add_argument( "-d", help="VCF file with the mutations found in a pool of normal samples", default = '/storage/research/dbmr_urology/Prostate_PDO/pon.tvc.vcf')
 	parser.add_argument( "-m", help="Email to report when jobs are done (optional)", required = False)
 
 	pa = parser.parse_args()
@@ -104,9 +104,9 @@ output_file=$(cat $param_store | awk -v var=$SLURM_ARRAY_TASK_ID 'NR==var {print
 param_store=args_nonorm.txt
 
 tumour_file=$(cat $param_store | awk -v var=$SLURM_ARRAY_TASK_ID 'NR==var {print $1}')  
-sample_name=$(cat $param_store | awk -v var=$SLURM_ARRAY_TASK_ID 'NR==var {print $3}')  
-vcf_file=$(cat $param_store | awk -v var=$SLURM_ARRAY_TASK_ID 'NR==var {print $4}')
-output_file=$(cat $param_store | awk -v var=$SLURM_ARRAY_TASK_ID 'NR==var {print $5}')
+sample_name=$(cat $param_store | awk -v var=$SLURM_ARRAY_TASK_ID 'NR==var {print $2}')  
+vcf_file=$(cat $param_store | awk -v var=$SLURM_ARRAY_TASK_ID 'NR==var {print $3}')
+output_file=$(cat $param_store | awk -v var=$SLURM_ARRAY_TASK_ID 'NR==var {print $4}')
 ''')
 
 		jsh.write('\nsingularity run -B %s %s -t $tumour_file -e %s -c %s -d %s -r 4 -o $sample_name && java -jar %s extractFields -s "," $vcf_file CHROM POS REF ALT ANN[*].GENE ANN[*].HGVS_P AF > $output_file\n' % (pa.b, pa.i, pa.e, pa.c, pa.d, pa.s))
