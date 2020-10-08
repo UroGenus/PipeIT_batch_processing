@@ -4,18 +4,22 @@ This repository contains scripts for batch processing of raw .bam files using [P
 
 ## Batch processing on UBELIX
 
+The following data structure is required to run the batch processing:
+- Folder with .bam files, so that each file has a name `IonXpress_<code>.bam`, see examples in `/storage/research/dbmr_urology/Prostate_PDO/bam`
+- xlsx file describing the .bam files with the columns 'Sample Name', 'Normalize by', and 'Ion Xpress Barcode' with the same structure as the file `/storage/research/dbmr_urology/Prostate_PDO/20200716_prostate_panel_sequencing.xlsx`
+- .bed file with the target gene panel, see example in `/storage/research/dbmr_urology/Prostate_PDO/20200716_prostate_panel_sequencing.xlsx`
+
 Run the following command with the parameters:
 ```
 python3 PipeIT_batch_run_ubelix.py
-  -b B        Folder with .bam data
+  -b B        Folder with .bam files
   -i I        PipeIT image file
   -t T        Input bam folder
   -e E        Target panel bed file
-  -x X        Ion Xpress Barcodes xlsx file with columns columns 'Sample
-              Name', 'Normalize by', and 'Ion Xpress Barcode'
-  -s S        snpEff jar file location
+  -x X        Ion Xpress Barcodes xlsx file with columns columns 'Sample Name', 'Normalize by', and 'Ion Xpress Barcode'
+  -s S        snpEff jar file
   -c C        Annovar's database files folder
-  -d D        the VCF file for the mutations found in a pool of normal samples
+  -d D        VCF file for the mutations found in a pool of normal samples
   -m M        Email to report when jobs are done (optional)
 ```
 For example
