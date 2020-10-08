@@ -109,7 +109,7 @@ vcf_file=$(cat $param_store | awk -v var=$SLURM_ARRAY_TASK_ID 'NR==var {print $3
 output_file=$(cat $param_store | awk -v var=$SLURM_ARRAY_TASK_ID 'NR==var {print $4}')
 ''')
 
-		jsh.write('\nsingularity run -B %s %s -t $tumour_file -e %s -c %s -d %s -r 4 -o $sample_name && java -jar %s extractFields -s "," $vcf_file CHROM POS REF ALT ANN[*].GENE ANN[*].HGVS_P AF > $output_file\n' % (pa.b, pa.i, pa.e, pa.c, pa.d, pa.s))
+		jsh.write('\nsingularity run -B %s %s -t $tumour_file -e %s -c %s -d %s -r 4 -o $sample_name && java -jar %s extractFields -s "," $vcf_file CHROM POS REF ALT ANN[*].GENE ANN[*].FEATUREID ANN[*].HGVS_P AF > $output_file\n' % (pa.b, pa.i, pa.e, pa.c, pa.d, pa.s))
 		
 		jsh.write('\nexit')
 
