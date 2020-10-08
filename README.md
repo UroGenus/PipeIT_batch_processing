@@ -74,10 +74,10 @@ singularity run -B <path/to/folders/that/need/to/be/mounted> <path/to/PipeIT_<ve
 ```
 For example, for prostate PDO raw data run on UBELIX cluster
 ```
-singularity run -B /storage/research/dbmr_urology/Prostate_PDO /home/ubelix/dbmr/ko20g613/PipeIT_1.2.13.img -t /storage/research/dbmr_urology/Prostate_PDO/bam/IonXpress_024.bam  -e /storage/research/dbmr_urology/Prostate_PDO/WG_IAD127899.20170720.designed.bed -c /home/ubelix/dbmr/ko20g613/scripts/PipeIT_batch_processing/humandb -d /storage/research/dbmr_urology/Prostate_PDO/pon.tvc.vcf  -r 4  -o P133-CA-N-TS
+singularity run -B /storage/research/dbmr_urology/Prostate_PDO /home/ubelix/dbmr/ko20g613/PipeIT_1.2.13.img -t /storage/research/dbmr_urology/Prostate_PDO/bam/IonXpress_024.bam  -e /storage/research/dbmr_urology/Prostate_PDO/WG_IAD127899.20170720.designed.bed -c /storage/research/dbmr_urology/Prostate_PDO/humandb -d /storage/research/dbmr_urology/Prostate_PDO/pon.tvc.vcf  -r 4  -o P133-CA-N-TS
 ```
 where
-- `/storage/research/dbmr_urology/humandb` is the path to the Annovar's database folder that can be dowloaded with PipeIT as described [here](https://github.com/ckynlab/PipeIT)
+- `/storage/research/dbmr_urology/Prostate_PDO/humandb` is the path to the Annovar's database folder that can be dowloaded with PipeIT as described [here](https://github.com/ckynlab/PipeIT)
 - `/storage/research/dbmr_urology/Prostate_PDO/pon.tvc.vcf` is the path to the file with the mutations found in a pool of normal samples (can be generated with [this pipeline](https://github.com/charlottekyng/usb-modules-v2))
 
 For more details and options, see [the PipeIT repository docu](https://github.com/ckynlab/PipeIT).
