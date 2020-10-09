@@ -57,7 +57,7 @@ singularity run -B <path/to/folders/that/need/to/be/mounted> <path/to/PipeIT_<ve
 ```
 For example, for prostate PDO raw data run on UBELIX cluster
 ```
-singularity run -B /storage/research/dbmr_urology/Prostate_PDO PipeIT_1.2.13.img -t /storage/research/dbmr_urology/Prostate_PDO/bam/IonXpress_010.bam -n /storage/research/dbmr_urology/Prostate_PDO/bam/IonXpress_001.bam -e /storage/research/dbmr_urology/Prostate_PDO/WG_IAD127899.20170720.designed.bed -o test_3
+singularity run -B /storage/research/dbmr_urology/Prostate_PDO PipeIT_1.2.13.img -t /storage/research/dbmr_urology/Prostate_PDO/bam/IonXpress_003.bam -n /storage/research/dbmr_urology/Prostate_PDO/bam/IonXpress_010.bam -e /storage/research/dbmr_urology/Prostate_PDO/WG_IAD127899.20170720.designed.bed -o test_3
 ```
 where
 - `/storage/research/dbmr_urology/Prostate_PDO` is the folder with prostate PDO raw data
