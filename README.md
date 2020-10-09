@@ -7,7 +7,7 @@ This repository contains scripts for batch processing of raw .bam files using [P
 The following data structure is required to run the batch processing:
 - Folder with .bam files, so that each file has a name `IonXpress_<code>.bam`, see examples in `/storage/research/dbmr_urology/Prostate_PDO/bam`
 - xlsx file describing the .bam files with the columns 'Sample Name', 'Normalize by', and 'Ion Xpress Barcode' with the same structure as the file `/storage/research/dbmr_urology/Prostate_PDO/20200716_prostate_panel_sequencing.xlsx`
-- .bed file with the target gene panel, see example in `/storage/research/dbmr_urology/Prostate_PDO/20200716_prostate_panel_sequencing.xlsx`
+- .bed file with the target gene panel, see example in `/storage/research/dbmr_urology/Prostate_PDO/WG_IAD127899.20170720.designed.bed`
 
 Run the following command with the parameters:
 ```
