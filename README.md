@@ -91,3 +91,25 @@ java -jar path/to/SnpSift.jar extractFields -s "," PipeIT/results/<output_direct
 ```
 
 To extract more information from .vcf, check out [documentation of SnpSift](https://pcingola.github.io/SnpEff/ss_extractfields/#example-1-extracting-chromosome-position-id-and-allele-frequency).
+
+### Retrieve Gene Symbol IDs from the .bed file
+
+If you want to associate the official gene symbol to the regions overlapping the human genome indicated in the .bed file, you can 
+navigate to [Genome Browser Gateway](https://genome.ucsc.edu/cgi-bin/hgGateway) and select table browser from the tools menu.
+
+Complete the fields in the table browser with [these options](https://genome.ucsc.edu/cgi-bin/hgTables?hgsid=915189327_SVlXMVfDA3Fea7LjM0AaKepVBWlP&clade=mammal&org=Human&db=hg19&hgta_group=genes&hgta_track=knownGene&hgta_table=knownCanonical&hgta_regionType=userRegions&position=chrX%3A15%2C578%2C261-15%2C621%2C068&hgta_outputType=selectedFields&hgta_outFileName=output.test.01), select "define region" and click "change. Upload the .bed file corresponding to the IonTorrnet panel and click "submit". **Note:** the .bed file will be cropped at 1000 lines. 
+
+Select the following fields from the get output view:
+
+- **Select Fields from hg19.knownCanonical** : chrom, chromstart, chromend
+- **hg19.kgXref fields** : genSymbol
+- **Linked Tables** : hg19 knownToEnsembl
+
+Go back to the top of the page and click "get output" again, before saving the file.
+
+The file obtained will have 4 columns:
+- chromosome name
+- chromosome start
+- chromosome end
+- gene symbol (this is the official gene symbol corresponding to the gene found at the offsets indicated in the .bed file. These offsets are within the offsets of the chromosome start and end, on the human genome sequence).
+
