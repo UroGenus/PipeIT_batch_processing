@@ -87,7 +87,7 @@ For more details and options, see [the PipeIT repository docu](https://github.co
 PipeIT generates several output files in the folder `PipeIT/results/<output_directory>`. The .vcf can be found under `PipeIT/results/<output_directory>/<output_directory>.PipeIT.vcf`. To extract mutation information from this file in .tsv format, install [SnpEff & SnpSift](https://pcingola.github.io/SnpEff/download/) and run the following commands
 ```
 module load Java/11.0.2
-java -jar path/to/SnpSift.jar extractFields -s "," PipeIT/results/<output_directory>/<output_directory>.PipeIT.vcf CHROM POS REF ALT ANN[*].GENE ANN[*].FEATUREID ANN[*].HGVS_P AF > output.tsv
+java -jar path/to/SnpSift.jar extractFields -s "," PipeIT/results/<output_directory>/<output_directory>.PipeIT.vcf CHROM POS REF ALT ANN[*].GENE ANN[*].GENEID ANN[*].FEATUREID ANN[*].HGVS_P AF > output.tsv
 ```
 
 To extract more information from .vcf, check out [documentation of SnpSift](https://pcingola.github.io/SnpEff/ss_extractfields/#example-1-extracting-chromosome-position-id-and-allele-frequency).
