@@ -114,3 +114,4 @@ The file obtained will have 4 columns:
 - chromosome end
 - gene symbol (this is the official gene symbol corresponding to the gene found at the offsets indicated in the .bed file. These offsets are within the offsets of the chromosome start and end, on the human genome sequence).
 
+Gene information can be then added to the original .bed file using [this script](https://github.com/UroGenus/PipeIT_batch_processing/blob/main/join_bed.py).
