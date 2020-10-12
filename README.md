@@ -97,7 +97,7 @@ To extract more information from .vcf, check out [documentation of SnpSift](http
 If you want to associate the official gene symbol to the regions overlapping the human genome indicated in the .bed file, you can 
 navigate to [Genome Browser Gateway](https://genome.ucsc.edu/cgi-bin/hgGateway) and select table browser from the tools menu.
 
-Complete the fields in the table browser with [these options](https://genome.ucsc.edu/cgi-bin/hgTables?hgsid=915189327_SVlXMVfDA3Fea7LjM0AaKepVBWlP&clade=mammal&org=Human&db=hg19&hgta_group=genes&hgta_track=knownGene&hgta_table=knownCanonical&hgta_regionType=userRegions&position=chrX%3A15%2C578%2C261-15%2C621%2C068&hgta_outputType=selectedFields&hgta_outFileName=output.test.01), select "define region" and click "change. Upload the .bed file corresponding to the IonTorrnet panel and click "submit". **Note:** the .bed file will be cropped at 1000 lines. 
+Complete the fields in the table browser with [these options](https://genome.ucsc.edu/cgi-bin/hgTables?hgsid=915189327_SVlXMVfDA3Fea7LjM0AaKepVBWlP&clade=mammal&org=Human&db=hg19&hgta_group=genes&hgta_track=knownGene&hgta_table=knownCanonical&hgta_regionType=userRegions&position=chrX%3A15%2C578%2C261-15%2C621%2C068&hgta_outputType=selectedFields&hgta_outFileName=output.test.01), select "define region" and click "change. Upload the .bed file corresponding to the IonTorrnet panel and click "submit". **Note:** the input file should be <= 1000 lines (split the original .bed file using [this script](https://github.com/UroGenus/PipeIT_batch_processing/blob/main/split_bed.py)). 
 
 Select the following fields from the get output view:
 
