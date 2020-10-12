@@ -103,6 +103,7 @@ Select the following fields from the get output view:
 
 - **Select Fields from hg19.knownCanonical** : chrom, chromstart, chromend
 - **hg19.kgXref fields** : genSymbol
+- **hg19.knownToEnsembl fields** : primary ID, associated ID, label, quantity etc.
 - **Linked Tables** : hg19 knownToEnsembl
 
 Go back to the top of the page and click "get output" again, before saving the file.
