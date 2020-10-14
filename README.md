@@ -74,7 +74,7 @@ singularity run -B <path/to/folders/that/need/to/be/mounted> <path/to/PipeIT_<ve
 ```
 For example, for prostate PDO raw data run on UBELIX cluster
 ```
-singularity run -B /storage/research/dbmr_urology/Prostate_PDO /home/ubelix/dbmr/ko20g613/PipeIT_1.2.13.img -t /storage/research/dbmr_urology/Prostate_PDO/bam/IonXpress_024.bam  -e /storage/research/dbmr_urology/Prostate_PDO/WG_IAD127899.20170720.designed.bed -c /storage/research/dbmr_urology/Prostate_PDO/humandb -d /storage/research/dbmr_urology/Prostate_PDO/pon.tvc.vcf  -r 4  -o P133-CA-N-TS
+singularity run -B /storage/research/dbmr_urology/Prostate_PDO /home/ubelix/dbmr/ko20g613/PipeIT_1.2.13.img -t /storage/research/dbmr_urology/Prostate_PDO/bam/IonXpress_024.bam  -e /storage/research/dbmr_urology/Prostate_PDO/WG_IAD127899.20170720.designed.bed -c /storage/research/dbmr_urology/Prostate_PDO/humandb -d /storage/research/dbmr_urology/Prostate_PDO/pon.tvc.vcf  -r 4  -o test_24
 ```
 where
 - `/storage/research/dbmr_urology/Prostate_PDO/humandb` is the path to the Annovar's database folder that can be dowloaded with PipeIT as described [here](https://github.com/ckynlab/PipeIT)
@@ -92,7 +92,7 @@ java -jar path/to/SnpSift.jar extractFields -s "," PipeIT/results/<output_direct
 
 To extract more information from .vcf, check out [documentation of SnpSift](https://pcingola.github.io/SnpEff/ss_extractfields/#example-1-extracting-chromosome-position-id-and-allele-frequency).
 
-### Retrieve Gene Symbol IDs from the .bed file
+## Retrieve Gene Symbol IDs from the .bed file
 
 If you want to associate the official gene symbol to the regions overlapping the human genome indicated in the .bed file, you can 
 navigate to [Genome Browser Gateway](https://genome.ucsc.edu/cgi-bin/hgGateway) and select table browser from the tools menu.
