@@ -91,7 +91,7 @@ For more details and options, see [the PipeIT repository docu](https://github.co
 
 PipeIT generates several output files in the folder `PipeIT/results/<output_directory>`. The .vcf can be found under `PipeIT/results/<output_directory>/<output_directory>.PipeIT.vcf`. To extract mutation information from this file in .tsv format, install [SnpEff & SnpSift](https://pcingola.github.io/SnpEff/download/) and run the following commands
 
-On UBELIX, first the java module has to be loaded as follows: `module load <java module name>`. For example, `module load <java Java/11.0.2>`. Then run
+On UBELIX, first the java module has to be loaded as follows: `module load <java module name>`. For example, `module load Java/11.0.2`. Then run
 ```
 java -jar path/to/SnpSift.jar extractFields -s "," PipeIT/results/<output_directory>/<output_directory>.PipeIT.vcf CHROM POS REF ALT ANN[*].GENE ANN[*].GENEID ANN[*].FEATUREID ANN[*].HGVS_P AF > output.tsv
 ```
