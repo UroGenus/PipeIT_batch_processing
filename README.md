@@ -4,15 +4,16 @@ This repository contains scripts for batch processing of raw .bam files using [P
 
 ## Batch processing on UBELIX
 
-The following data structure is required to run the batch processing:
+### Input data structure:
 - Folder with .bam files, so that each file has a name `IonXpress_<code>.bam`, see examples in `/storage/research/dbmr_urology/Prostate_PDO/bam`
 - xlsx file describing the .bam files with the columns 'Sample Name', 'Normalize by', and 'Ion Xpress Barcode' with the same structure as the file `/storage/research/dbmr_urology/Prostate_PDO/20200716_prostate_panel_sequencing.xlsx`
 - .bed file with the target gene panel, see example in `/storage/research/dbmr_urology/Prostate_PDO/WG_IAD127899.20170720.designed.bed`
 
-The following software needs to be downloaded:
+### Software to be downloaded:
 - `PipeIT_<version>.img` is PipeIT singularity image that can be downloaded from PipeIT laboratory's website: [http://oncogenomicslab.org/software-downloads](http://oncogenomicslab.org/software-downloads)
 - SnpEff & SnpSift is a genomic variant annotations and functional effect prediction toolbox that can be installed as described at [https://pcingola.github.io/SnpEff/download/](https://pcingola.github.io/SnpEff/download/)
 
+### Processing
 Run the following command with the parameters:
 ```
 python3 PipeIT_batch_run_ubelix.py
