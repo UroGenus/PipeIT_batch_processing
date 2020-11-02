@@ -18,6 +18,8 @@ def main():
 
 	results_df = pd.DataFrame()
 	for d in os.listdir(pa.i):
+		if barcodes_df[barcodes_df['Sample Name'] == d].shape[0] == 0: continue
+	
 		results_file = path.join(pa.i, '%s/%s.PipeIT.tsv') % (d, d)
 		if not path.isfile(results_file):
 			print('No file', results_file)
