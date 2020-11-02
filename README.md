@@ -26,6 +26,7 @@ python3 PipeIT_batch_run_ubelix.py
   -c C        Annovar's database files folder
   -d D        VCF file for the mutations found in a pool of normal samples
   -m M        Email to report when jobs are done (optional)
+  -p P        Separate character in the Ion Torrent .bam file names (default is '_')
 ```
 For example
 ```
