@@ -23,7 +23,7 @@ def main():
 	parser.add_argument( "-c", help="Annovar's database files folder", default = '/storage/research/dbmr_urology/Prostate_PDO/humandb')
 	parser.add_argument( "-d", help="VCF file with the mutations found in a pool of normal samples", default = '/storage/research/dbmr_urology/Prostate_PDO/pon.tvc.vcf')
 	parser.add_argument( "-m", help="Email to report when jobs are done (optional)", required = False)
-	parser.add_argument( "-s", help="Separate character in the Ion Torrent .bam file names (default is '_')", default = '_')
+	parser.add_argument( "-p", help="Separate character in the Ion Torrent .bam file names (default is '_')", default = '_')
 
 	pa = parser.parse_args()
 
@@ -35,7 +35,7 @@ def main():
 		with open ('args_nonorm.txt', 'w') as args_nonorm_file:
 			for i, row in barcodes_df[barcodes_df['Sample Type']!='Blood'].iterrows(): 
 				tumour_code = row['Ion Xpress Barcode']
-				tumour_file = path.join(pa.t, "IonXpress%s%s.bam") % (pa.s, gen_str_code(tumour_code))
+				tumour_file = path.join(pa.t, "IonXpress%s%s.bam") % (pa.p, gen_str_code(tumour_code))
 
 				output_dir = path.join('PipeIT/results/', row['Sample Name'])
 				vcf_file = '%s/%s.PipeIT.vcf'	% (output_dir, row['Sample Name'])	
@@ -45,7 +45,7 @@ def main():
 				if pd.notna(norm):
 					n_jobs_norm += 1
 					norm_code = barcodes_df[barcodes_df['Sample Name'] == norm]['Ion Xpress Barcode'].values[0]
-					norm_file = path.join(pa.t, "IonXpress%s%s.bam") % (pa.s, gen_str_code(norm_code))
+					norm_file = path.join(pa.t, "IonXpress%s%s.bam") % (pa.p, gen_str_code(norm_code))
 					args_norm_file.write('%s\t%s\t%s\t%s\t%s\n' % (tumour_file, norm_file, row['Sample Name'], vcf_file, output_file))
 				else:
 					n_jobs_nonorm += 1					
