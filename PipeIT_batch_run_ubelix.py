@@ -58,7 +58,7 @@ def main():
 #!/bin/bash
 
 #SBATCH --mail-type=end,fail
-#SBATCH --partition=all
+#SBATCH --partition=epyc2
 #SBATCH --time=04:00:00    # Each task takes max 4 hours
 #SBATCH --mem-per-cpu=4G   # Each task uses max 4G of memory
 #SBATCH --output=log_norm.txt
