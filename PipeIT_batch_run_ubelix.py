@@ -90,7 +90,7 @@ output_file=$(cat $param_store | awk -v var=$SLURM_ARRAY_TASK_ID 'NR==var {print
 #!/bin/bash
 
 #SBATCH --mail-type=end,fail
-#SBATCH --partition=all
+#SBATCH --partition=epyc2
 #SBATCH --time=06:00:00    # Each task takes max 6 hours
 #SBATCH --mem-per-cpu=4G   # Each task uses max 4G of memory
 #SBATCH --output=log_nonorm.txt
