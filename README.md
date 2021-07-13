@@ -13,6 +13,17 @@ This repository contains scripts for batch processing of raw .bam files using [P
 - `PipeIT_<version>.img` is PipeIT singularity image that can be downloaded from PipeIT laboratory's website: [http://oncogenomicslab.org/software-downloads](http://oncogenomicslab.org/software-downloads)
 - SnpEff & SnpSift is a genomic variant annotations and functional effect prediction toolbox that can be installed as described at [https://pcingola.github.io/SnpEff/download/](https://pcingola.github.io/SnpEff/download/)
 
+### Rewriting headers in .bam (optional)
+
+PipeIT requires the SM tag in the .bam header to be equal to the .bam file name. If this is not the case for your data, then `correct_header.sh` script can be used to fix it. Run it as follows:
+```
+.\correct_header.sh INPUT_BAM_FOLDER
+```
+For example
+```
+.\correct_header.sh /storage/research/dbmr_urology/Prostate_PDO/Ion_Torrent_June_2021/bam
+```
+
 ### Processing
 Run the following command with the parameters:
 ```
