@@ -15,7 +15,7 @@ This repository contains scripts for batch processing of raw .bam files using [P
 
 ### Rewriting headers in .bam (optional)
 
-PipeIT requires the SM tag in the .bam header to be equal to the .bam file name. If this is not the case for your data (can be checked by running `samtools view -H BAM_FILE_PATH  | grep "SM:"`), then `correct_header.sh` script can be used to fix it. Run it as follows:
+PipeIT requires the SM tag in the .bam header to be equal to the .bam file name (*ERROR: Sample IonXpress_??? provided using -g option is not associated with any read groups in BAM file(s)*). If this is not the case for your data (can be checked by running `samtools view -H BAM_FILE_PATH  | grep "SM:"`), then `correct_header.sh` script can be used to fix it. Run it as follows:
 ```
 .\correct_header.sh INPUT_BAM_FOLDER
 ```
