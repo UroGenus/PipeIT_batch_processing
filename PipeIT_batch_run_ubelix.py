@@ -15,11 +15,11 @@ def gen_str_code(code):
 def main():
 	parser = argparse.ArgumentParser( description="Run PipeIT batch processing on Ubelix" )
 	parser.add_argument( "-b", help="Folder with .bam data", default = '/storage/research/dbmr_urology/Prostate_PDO')
-	parser.add_argument( "-i", help="PipeIT image file", default = '/home/ubelix/dbmr/ko20g613/PipeIT_1.2.13.img')
+	parser.add_argument( "-i", help="PipeIT image file", default = '/storage/homefs/ko20g613/PipeIT_2.0.0.img')
 	parser.add_argument( "-t", help="Input bam folder", default = '/storage/research/dbmr_urology/Prostate_PDO/bam/')
 	parser.add_argument( "-e", help="Target panel bed file", default = '/storage/research/dbmr_urology/Prostate_PDO/WG_IAD127899.20170720.designed.bed')
 	parser.add_argument( "-x", help="Ion Xpress Barcodes xlsx file with columns columns 'Sample Name', 'Normalize by', and 'Ion Xpress Barcode'", default = '/storage/research/dbmr_urology/Prostate_PDO/20200716_prostate_panel_sequencing.xlsx')
-	parser.add_argument( "-s", help="snpEff jar file location", default = '/home/ubelix/dbmr/ko20g613/snpEff/SnpSift.jar')
+	parser.add_argument( "-s", help="snpEff jar file location", default = '/storage/homefs/ko20g613/snpEff/SnpSift.jar')
 	parser.add_argument( "-c", help="Annovar's database files folder", default = '/storage/research/dbmr_urology/Prostate_PDO/humandb')
 	parser.add_argument( "-d", help="VCF file with the mutations found in a pool of normal samples", default = '/storage/research/dbmr_urology/Prostate_PDO/pon.tvc.vcf')
 	parser.add_argument( "-m", help="Email to report when jobs are done (optional)", required = False)
@@ -110,8 +110,12 @@ vcf_file=$(cat $param_store | awk -v var=$SLURM_ARRAY_TASK_ID 'NR==var {print $3
 output_file=$(cat $param_store | awk -v var=$SLURM_ARRAY_TASK_ID 'NR==var {print $4}')
 ''')
 
-		jsh.write('\nsingularity run -B %s %s -t $tumour_file -e %s -c %s -d %s -r 4 -o $sample_name && java -jar %s extractFields -s "," $vcf_file CHROM POS REF ALT ANN[*].GENE ANN[*].GENEID ANN[*].FEATUREID ANN[*].HGVS_P AF > $output_file\n' % (pa.b, pa.i, pa.e, pa.c, pa.d, pa.s))
+		# PipeIT_1.2.13 version
+		#jsh.write('\nsingularity run -B %s %s -t $tumour_file -e %s -c %s -d %s -r 4 -o $sample_name && java -jar %s extractFields -s "," $vcf_file CHROM POS REF ALT ANN[*].GENE ANN[*].GENEID ANN[*].FEATUREID ANN[*].HGVS_P AF > $output_file\n' % (pa.b, pa.i, pa.e, pa.c, pa.d, pa.s))
 		
+		# PipeIT_2.0.0 version
+		jsh.write('\nsingularity run -B %s %s -t $tumour_file -e %s -c %s -o $sample_name && java -jar %s extractFields -s "," $vcf_file CHROM POS REF ALT ANN[*].GENE ANN[*].GENEID ANN[*].FEATUREID ANN[*].HGVS_P AF > $output_file\n' % (pa.b, pa.i, pa.e, pa.c, pa.d, pa.s))
+
 		jsh.write('\nexit')
 
 	os.chmod('jobs_norm.sh', 0o777)
