@@ -41,7 +41,9 @@ python3 PipeIT_batch_run_ubelix.py
 ```
 For example
 ```
-python3 PipeIT_batch_run_ubelix.py -i /storage/homefs/ko20g613/PipeIT_2.0.0.img -b /storage/research/dbmr_urology/Prostate_PDO -t /storage/research/dbmr_urology/Prostate_PDO/IonTorrent_Nov_2021/bam -e /storage/research/dbmr_urology/Prostate_PDO/WG_IAD127899.20170720.designed.bed -x /storage/research/dbmr_urology/Prostate_PDO/IonTorrent_Nov_2021/Normalization_info_DNA_samples_sequencing_15.09.2021_Sina.xlsx -s /storage/homefs/ko20g613/snpEff/SnpSift.jar -c /storage/research/dbmr_urology/Prostate_PDO/humandb -d /storage/research/dbmr_urology/Prostate_PDO/pon.tvc.vcf
+python3 PipeIT_batch_run_ubelix.py -i /storage/homefs/ko20g613/PipeIT_2.0.0.img -b /storage/research/dbmr_urology/Prostate_PDO -t /storage/research/dbmr_urology/Prostate_PDO/IonTorrent_Nov_2021/bam -e /storage/research/dbmr_urology/Prostate_PDO/WG_IAD127899.20170720.designed.bed -x /storage/research/dbmr_urology/Prostate_PDO/IonTorrent_Nov_2021/Normalization_info_DNA_samples_sequencing_15.09.2021_Sina.xlsx -s /storage/homefs/ko20g613/snpEff/SnpSift.jar -c /storage/research/dbmr_urology/Prostate_PDO/humandb 
+
+python3 PipeIT_batch_run_ubelix.py -i /storage/homefs/ko20g613/PipeIT_2.0.0.img -b /storage/research/dbmr_urology/Prostate_PDO -t /storage/research/dbmr_urology/Prostate_PDO/Ion_Torrent_June_2021/bam/ -e /storage/research/dbmr_urology/Prostate_PDO/WG_IAD127899.20170720.designed.bed -x /storage/research/dbmr_urology/Prostate_PDO/Ion_Torrent_June_2021/Ion_Torrent_Samples_Sofia_sequencing_20210602.xlsx -s /storage/homefs/ko20g613/snpEff/SnpSift.jar -c /storage/research/dbmr_urology/Prostate_PDO/humandb
 ```
 This script will generate the `jobs_norm.sh` and `jobs_nonorm.sh` files in the same directory, that should be run as follows
 ```
