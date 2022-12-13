@@ -106,7 +106,7 @@ PipeIT generates several output files in the folder `PipeIT/results/<output_dire
 
 On UBELIX, first the java module has to be loaded as follows: `module load <java module name>`. For example, `module load Java/11.0.2`. Then run
 ```
-java -jar path/to/SnpSift.jar extractFields -s "," PipeIT/results/<output_directory>/<output_directory>.PipeIT.vcf CHROM POS REF ALT ANN[*].GENE ANN[*].GENEID ANN[*].FEATUREID ANN[*].HGVS_P AF > output.tsv
+java -jar path/to/SnpSift.jar extractFields -s "," PipeIT/results/<output_directory>/<output_directory>.PipeIT.vcf CHROM POS REF ALT ANN[*].GENE  ANN[*].GENEID ANN[*].FEATUREID ANN[*].HGVS_P ANN[*].EFFECT ANN[*].IMPACT AF > output.tsv
 ```
 
 To extract more information from .vcf, check out [documentation of SnpSift](https://pcingola.github.io/SnpEff/ss_extractfields/#example-1-extracting-chromosome-position-id-and-allele-frequency).
